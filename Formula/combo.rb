@@ -5,14 +5,14 @@
 class Combo < Formula
   desc ""
   homepage "https://github.com/tolgaOzen/combo"
-  version "0.2.1"
+  version "0.2.3"
   license "MIT"
 
   depends_on "go" => :build
 
   on_macos do
-    url "https://github.com/tolgaOzen/combo/releases/download/v0.2.1/combo_0.2.1_darwin_all.tar.gz", using: CurlDownloadStrategy
-    sha256 "bef66901c92f4f8a3ff73c2b2cf9244147404c0e1bef4e9259a817178ec50847"
+    url "https://github.com/tolgaOzen/combo/releases/download/v0.2.3/combo_0.2.3_darwin_all.tar.gz", using: CurlDownloadStrategy
+    sha256 "d33044de2bd99a35c6c1f645809618ff5667f84c2509719f13f1cb1a85938cfc"
 
     def install
       bin.install "combo"
@@ -20,20 +20,20 @@ class Combo < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tolgaOzen/combo/releases/download/v0.2.1/combo_0.2.1_linux_amd64.tar.gz", using: CurlDownloadStrategy
-        sha256 "d424efb06df3acc45e58e1968367c3637796fa38af229a9b30c864df908327c2"
+        url "https://github.com/tolgaOzen/combo/releases/download/v0.2.3/combo_0.2.3_linux_amd64.tar.gz", using: CurlDownloadStrategy
+        sha256 "dd8762ab077b5989629862f7f584f90866204c79f502a31dd87b7140922cba84"
 
         def install
           bin.install "combo"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tolgaOzen/combo/releases/download/v0.2.1/combo_0.2.1_linux_arm64.tar.gz", using: CurlDownloadStrategy
-        sha256 "4a0f5036376c8b36a747241b6781990ac24f6eb2bef9498d6ec6718af6df1e92"
+        url "https://github.com/tolgaOzen/combo/releases/download/v0.2.3/combo_0.2.3_linux_arm64.tar.gz", using: CurlDownloadStrategy
+        sha256 "b677c0d528a1b538e106f2027b045dce568ca219ee0a89db9d3a0c8e9f268be4"
 
         def install
           bin.install "combo"
